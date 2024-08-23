@@ -24,8 +24,8 @@ i) Método `modulo(): number` que retorna o módulo do número complexo.
 var rl = require('readline-sync')
 
 export class NumeroComplexo {
-    private real: number;
-    private imaginario: number;
+     real: number;
+     imaginario: number;
 
     constructor(real: number, imaginario: number) {
         this.real = real;
@@ -45,29 +45,33 @@ export class NumeroComplexo {
         let escolha = rl.questionInt(`Insira o valor que queres inserir no Imaginario: `)
         this.imaginario = escolha
     }
-
-    somar(outroComplexo: NumeroComplexo): NumeroComplexo {
+    somar(outroComplexo: NumeroComplexo): string {
         let novoReal = this.real + outroComplexo.real
         let novoImaginario = this.imaginario + outroComplexo.imaginario
-        return new NumeroComplexo(novoReal, novoImaginario)
+        let novoComplexo = new NumeroComplexo(novoReal, novoImaginario)
+        let stringNovo = novoComplexo.toString()
+        return stringNovo
     }
-
-    subtrair(outroComplexo: NumeroComplexo): NumeroComplexo {
+    subtrair(outroComplexo: NumeroComplexo): string {
         let novoReal = this.real - outroComplexo.real
         let novoImaginario = this.imaginario - outroComplexo.imaginario
-        return new NumeroComplexo(novoReal, novoImaginario)
+        let novoComplexo = new NumeroComplexo(novoReal, novoImaginario)
+        let stringNovo = novoComplexo.toString()
+        return stringNovo
     }
-
-    multiplicar(outroComplexo: NumeroComplexo): NumeroComplexo {
+    multiplicar(outroComplexo: NumeroComplexo): string {
         let novoReal = (this.real * outroComplexo.real)
         let novoImaginario = (this.real * outroComplexo.imaginario)
-        return new NumeroComplexo(novoReal, novoImaginario)
+        let novoComplexo = new NumeroComplexo(novoReal, novoImaginario)
+        let stringNovo = novoComplexo.toString()
+        return stringNovo
     }
-
-    dividir(outroComplexo: NumeroComplexo): NumeroComplexo {
+    dividir(outroComplexo: NumeroComplexo): string {
         let novoReal = (this.real / outroComplexo.real)
         let novoImaginario = (this.real / outroComplexo.imaginario)
-        return new NumeroComplexo(novoReal, novoImaginario)
+        let novoComplexo = new NumeroComplexo(novoReal, novoImaginario)
+        let stringNovo = novoComplexo.toString()
+        return stringNovo
     }
 
     equals(outroComplexo: NumeroComplexo): boolean {
@@ -81,11 +85,13 @@ export class NumeroComplexo {
     }
 
     toString(): string {
-        return `(${this.real} + ${this.imaginario}i)`
+        return `(Real: ${this.real}, Imaginario: ${this.imaginario}i )`
     }
 
-    modulo(outroNumero): number {
-        return Math.sqrt(this.real * outroNumero.real + this.imaginario * outroNumero.imaginario);
+    modulo(outroNumero): string {
+        let resultado = Math.sqrt(this.real * outroNumero.real + this.imaginario * outroNumero.imaginario )
+        let resultado2 = resultado + 'i'
+        return resultado2;
     }
 }
 
